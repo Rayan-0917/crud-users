@@ -3,7 +3,7 @@ const pool = require("../config/db");
 const createUser=async(req, res)=>{
     try {
         const {first_name, last_name, gender, dob, email}=req.body;
-        const newUser=await pool.query("INSERT INTO users (first_name, last_name, gender, date_of_birth, email) VALUES ($1, $2, $3, $4, $5)", [first_name, last_name, gender, dob, email])
+        const newUser=await pool.query("INSERT INTO users (first_name, last_name, gender, date_of_birth, email) VALUES ($1, $2, $3, $4, $5) RETURNING *", [first_name, last_name, gender, dob, email])
         res.json(newUser.rows[0]);
     } catch (error) {
         console.log(error.message);
