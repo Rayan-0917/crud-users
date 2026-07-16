@@ -95,47 +95,47 @@ function App() {
   }, [])
 
   return (
-    <div className='min-h-screen bg-gray-50 py-10 px-4'>
-      <div className='max-w-5xl mx-auto space-y-8'>
+    <div className='min-h-screen bg-gray-50 py-6 px-4 md:py-10'>
+      <div className='mx-auto space-y-8'>
 
         <div className='flex items-center justify-center border-b border-gray-200'>
           <h1 className='text-3xl font-extrabold pb-6'>User Management System</h1>
         </div>
       </div>
 
-      <div className='bg-white p-6 rounded-2xl border border-gray-100 mt-5'>
-        <div className='p-5'>
+      <div className='mx-auto bg-white p-4 md:p-6 rounded-2xl border border-gray-100 mt-5'>
+        <div className='p-2 md:p-5'>
           <div className='flex items-center space-x-2 mb-6'>
             <h2 className='text-xl font-bold'>Add new User</h2>
           </div>
 
           <form onSubmit={createUser} className="space-y-4">
-            <div className='grid grid-cols-2'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
               <div>
                 <label className="mb-2 text-slate-900 font-medium text-sm block">First Name</label>
-                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-125 border" />
+                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-full border" />
               </div>
               <div>
                 <label className="mb-2 text-slate-900 font-medium text-sm block">Last Name</label>
-                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-125 border" />
+                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-full border" />
               </div>
             </div>
-            <div className='grid grid-cols-2'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
               <div>
                 <label className="mb-2 text-slate-900 font-medium text-sm block">Gender</label>
-                <select name="gender" value={gender} onChange={(e) => setGender(e.target.value)} className="px-3 py-2 text-slate-900 rounded-md bg-white w-125 border">
+                <select name="gender" value={gender} onChange={(e) => setGender(e.target.value)} className="px-3 py-2 text-slate-900 rounded-md bg-white w-full border">
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
               </div>
               <div>
                 <label className="mb-2 text-slate-900 font-medium text-sm block">Date of Birth</label>
-                <input type="text" value={dob} onChange={(e) => setDob(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-125 border" placeholder='YYYY/MM/DD' />
+                <input type="text" value={dob} onChange={(e) => setDob(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-full border" placeholder='YYYY-MM-DD' />
               </div>
             </div>
             <div>
               <label className="mb-2 text-slate-900 font-medium text-sm block">Email</label>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-125 border" />
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-full border" />
             </div>
 
             <div className='flex p-4 mt-4'>
@@ -145,7 +145,9 @@ function App() {
         </div>
       </div>
 
-      <UsersList users={users} deleteUser={deleteUser} getAllUsers={getAllUsers} openEditModal={openEditModal}/>
+      <div className='mx-auto'>
+        <UsersList users={users} deleteUser={deleteUser} getAllUsers={getAllUsers} openEditModal={openEditModal}/>
+      </div>
 
       <EditUserModal user={selectedUser} isModalOpen={isModalOpen} closeEditModal={closeEditModal} updateUser={updateUser}/>
     </div>

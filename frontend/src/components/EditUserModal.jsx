@@ -39,40 +39,40 @@ const EditUserModal = ({user, isModalOpen, updateUser, closeEditModal}) => {
     }
 
     return (
-        <div className='fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50'>
-            <div className='bg-white p-6 rounded-2xl border border-gray-100 mt-5'>
-                <div className='p-5'>
+        <div className='fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto'>
+            <div className='bg-white p-6 rounded-2xl border border-gray-100 max-w-lg w-full overflow-hidden'>
+                <div className='p-5 md:p-8'>
                     <div className='flex items-center space-x-2 mb-6'>
                         <h2 className='text-xl font-bold'>Update user details</h2>
                     </div>
 
                     <form onSubmit={saveChanges} className="space-y-4">
-                        <div className='grid grid-cols-2 gap-3'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
                             <div>
                                 <label className="mb-2 text-slate-900 font-medium text-sm block">First Name</label>
-                                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-125 border" />
+                                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-full border" />
                             </div>
                             <div>
                                 <label className="mb-2 text-slate-900 font-medium text-sm block">Last Name</label>
-                                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-125 border" />
+                                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-full border" />
                             </div>
                         </div>
-                        <div className='grid grid-cols-2'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
                             <div>
                                 <label className="mb-2 text-slate-900 font-medium text-sm block">Gender</label>
-                                <select name="gender" value={gender} onChange={(e) => setGender(e.target.value)} className="px-3 py-2 text-slate-900 rounded-md bg-white w-125 border">
+                                <select name="gender" value={gender} onChange={(e) => setGender(e.target.value)} className="px-3 py-2 text-slate-900 rounded-md bg-white w-full border">
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
                             </div>
                             <div>
                                 <label className="mb-2 text-slate-900 font-medium text-sm block">Date of Birth</label>
-                                <input type="text" value={dob} onChange={(e) => setDob(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-125 border" placeholder='YYYY/MM/DD' />
+                                <input type="text" value={dob} onChange={(e) => setDob(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-full border" placeholder='YYYY/MM/DD' />
                             </div>
                         </div>
                         <div>
                             <label className="mb-2 text-slate-900 font-medium text-sm block">Email</label>
-                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-125 border" />
+                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="px-3 py-2.5 text-sm text-slate-900 rounded-md w-full border" />
                         </div>
 
                         <div className='flex p-4 mt-4 gap-4'>
