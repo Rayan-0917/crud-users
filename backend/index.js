@@ -8,7 +8,7 @@ const userRoutes=require("./routes/userRoutes");
 const app=express();
 
 const corsOptions={
-    origin: 'https://crud-users-e42wq333d-rayan-0917s-projects.vercel.app',
+    origin: 'https://crud-users-omega-pied.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
