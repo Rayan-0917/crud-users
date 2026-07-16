@@ -7,9 +7,16 @@ const userRoutes=require("./routes/userRoutes");
 
 const app=express();
 
-app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173'
-}));
+const corsOptions={
+    origin: 'https://crud-users-omega-pied.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
 
 app.use('/user', userRoutes);
