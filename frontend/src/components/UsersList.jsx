@@ -16,7 +16,7 @@ const UsersList = ({users, deleteUser, getAllUsers, openEditModal}) => {
               <div className='text-center py-10 text-gray-400'>No Users currently</div>
             ) : (
               <div className='overflow-x-auto w-full'>
-              <table className='w-full text-left'>
+              <table className='w-full text-left min-w-[600px]'>
                 <thead>
                   <tr className='border-b border-gray-200 text-slate-900 font-medium text-sm'>
                     <th className='px-4 py-3 md:px-6'>Name</th>
@@ -26,7 +26,7 @@ const UsersList = ({users, deleteUser, getAllUsers, openEditModal}) => {
                     <th className='px-4 py-3 md:px-6'>Actions</th>
                   </tr>
                 </thead>
-                <tbody> md:px-6
+                <tbody>
                   {users.map(user=>(
                     <tr key={user.id}>
                       <td className='px-4 py-3 md:px-6 font-semibold'>{user.first_name} {user.last_name}</td>
@@ -35,8 +35,8 @@ const UsersList = ({users, deleteUser, getAllUsers, openEditModal}) => {
                       <td className='px-4 py-3 md:px-6 font-semibold'>{user.email}</td>
                       <td className='px-4 py-3 md:px-6'>
                         <div className='flex flex-wrap gap-2'>
-                          <button onClick={()=>openEditModal(user)} className='px-5 py-2 rounded-md text-sm font-semibold text-white bg-yellow-500 hover:bg-yellow-700 transition cursor-pointer'>Update User</button>
-                          <button onClick={()=>deleteUser(user.id)} className='px-5 py-2 rounded-md text-sm font-semibold text-white bg-red-600 hover:bg-red-700 transition cursor-pointer'>Delete User</button>
+                          <button onClick={()=>openEditModal(user)} className='px-3 py-1.5 md:px-5 md:py-2 rounded-md text-sm font-semibold text-white bg-yellow-500 hover:bg-yellow-700 transition cursor-pointer'>Update User</button>
+                          <button onClick={()=>deleteUser(user.id)} className='px-3 py-1.5 md:px-5 md:py-2 rounded-md text-sm font-semibold text-white bg-red-600 hover:bg-red-700 transition cursor-pointer'>Delete User</button>
                         </div>
                       </td>
                     </tr>
